@@ -83,7 +83,6 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     protected void initAB() {
-
     }
 
     @Override
@@ -99,7 +98,7 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setRetainInstance(true);
+        setRetainInstance(true);
     }
 
     @Override
@@ -120,6 +119,22 @@ public class LoginFragment extends BaseFragment {
             getArguments().putInt(CURRENT_VIEW_KEY, Storage.getAccountType());
         }
 
+        vFlipper = view.findViewById(R.id.vFlipper);
+
+        mEditUrl = view.findViewById(R.id.editUrl);
+        mEditName = view.findViewById(R.id.editName);
+        mEditPassword = view.findViewById(R.id.editPassword);
+
+        mEditUrl.setText("https://redmine.tes-tec.com/");
+
+        mEditUrlRedmine = view.findViewById(R.id.ReditUrl);
+        mEditNameRedmine = view.findViewById(R.id.ReditName);
+        mEditPasswordRedmine = view.findViewById(R.id.ReditPassword);
+        mEditEmailRedmine = view.findViewById(R.id.ReditEmail);
+        mEditPhoneRedmine = view.findViewById(R.id.ReditPhone);
+
+        mEditUrlRedmine.setText("https://redmine.tes-tec.com/");
+
         if (Storage.getURL() != null && !Storage.getURL().isEmpty()) {
             mEditUrl.setText(Storage.getURL());
             mEditUrlRedmine.setText(Storage.getURL());
@@ -132,6 +147,7 @@ public class LoginFragment extends BaseFragment {
         }
 
         vFlipper.setDisplayedChild(getArguments().getInt(CURRENT_VIEW_KEY));
+
         mEditPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -167,8 +183,6 @@ public class LoginFragment extends BaseFragment {
                 args.putString(Args.ARG_EASY_REDMINE_REGISTRATION_TITLE, getString(
                         R.string.create_account_page_title));
                 WebViewActivity.startActivity(getFragmentActivity(), WebviewFragment.class.getName(), args);
-                //getFragmentActivity().replaceFragment(WebviewFragment.newInstance(Configuration
-                // .URL_EASYREDMINE_REGISTRATION, getString(R.string.create_account_page_title)));
             }
         });
 
@@ -179,8 +193,6 @@ public class LoginFragment extends BaseFragment {
                         R.color.r_primary_dark));
                 vFlipper.setDisplayedChild(1);
                 getArguments().putInt(CURRENT_VIEW_KEY, 1);
-
-
             }
         });
 
