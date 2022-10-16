@@ -1,8 +1,8 @@
 package cz.ackee.androidskeleton.adapter;
 
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;

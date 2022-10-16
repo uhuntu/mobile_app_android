@@ -24,14 +24,14 @@
         <item name="colorControlHighlight">#3fff</item>
     </style>
 
-    <style name="AppTheme.EasyRedmine.Transluent" parent="AppTheme.EasyRedmine">
+    <style name="AppTheme.EasyRedmine.Translucent" parent="AppTheme.EasyRedmine">
     </style>
 
-    <style name="AppTheme.EasyRedmine.NoTransluent" parent="AppTheme.EasyRedmine">
+    <style name="AppTheme.EasyRedmine.NoTranslucent" parent="AppTheme.EasyRedmine">
 
     </style>
 
-    <style name="AppTheme.Redmine.Transluent" parent="AppTheme.Redmine">
+    <style name="AppTheme.Redmine.Translucent" parent="AppTheme.Redmine">
 
     </style>
 

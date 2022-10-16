@@ -17,7 +17,7 @@ package cz.ackee.androidskeleton.loader;
 
 
 import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
+import androidx.loader.content.AsyncTaskLoader;
 
 /**
  * Loader which extends AsyncTaskLoaders and handles caveats

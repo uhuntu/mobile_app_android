@@ -2,7 +2,7 @@ package cz.ackee.androidskeleton.activity.base;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import net.hockeyapp.android.CrashManager;
@@ -12,10 +12,8 @@ import cz.config.HockeyConfig;
 import de.greenrobot.event.EventBus;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-
-public class BaseActivity extends ActionBarActivity {
+public class BaseActivity extends AppCompatActivity {
     public static String TAG = BaseActivity.class.getName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

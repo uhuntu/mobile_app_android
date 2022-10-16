@@ -3,10 +3,10 @@ package cz.ackee.androidskeleton.fragment;
 import java.util.ArrayList;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;

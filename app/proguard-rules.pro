@@ -30,7 +30,6 @@
 -keep class javax.inject.** { *; }
 -keep class retrofit.** { *; }
 
-
 -dontwarn com.google.appengine.**
 -dontwarn java.nio.**
 -dontwarn org.codehaus.**

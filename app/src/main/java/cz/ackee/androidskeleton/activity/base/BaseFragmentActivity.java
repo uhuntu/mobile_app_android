@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -101,7 +101,7 @@ public class BaseFragmentActivity extends BaseActivity {
         View v = LayoutInflater.from(this).inflate(getLayoutId(), null);
         mToolbar = (Toolbar) v.findViewById(R.id.toolBar);
         if (mToolbar != null) {
-            setSupportActionBar((android.support.v7.widget.Toolbar) mToolbar);
+            setSupportActionBar((androidx.appcompat.widget.Toolbar) mToolbar);
         }
         return v;
     }
@@ -114,7 +114,7 @@ public class BaseFragmentActivity extends BaseActivity {
         tintManager.setStatusBarTintEnabled(true);
 
         if (Storage.getAccountType() == AccountType.REDMINE.value) {
-            setTheme(R.style.AppTheme_Redmine_Transluent);
+            setTheme(R.style.AppTheme_Redmine_Translucent);
             tintManager.setStatusBarTintColor(getResources().getColor(R.color.r_primary_dark));
         } else {
             tintManager.setStatusBarTintColor(getResources().getColor(R.color.er_primary_dark));

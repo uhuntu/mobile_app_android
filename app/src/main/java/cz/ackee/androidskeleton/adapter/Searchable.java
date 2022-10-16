@@ -1,6 +1,6 @@
 package cz.ackee.androidskeleton.adapter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Interface for searchable adapters
