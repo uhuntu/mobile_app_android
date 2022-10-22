@@ -97,6 +97,8 @@ public class TasksFragment extends BaseListFragment implements SwipeRefreshLayou
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
 
+        mSwipeRefresh = view.findViewById(R.id.swipe_container);
+
         mSwipeRefresh.setOnRefreshListener(this);
         mSwipeRefresh.setColorSchemeResources(getFragmentActivity().isEasyRedmine() ? R.color.er_primary : R.color.r_primary);
 

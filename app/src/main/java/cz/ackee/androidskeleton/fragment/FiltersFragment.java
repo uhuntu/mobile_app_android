@@ -42,10 +42,9 @@ public class FiltersFragment extends BaseFragment implements LoaderManager.Loade
 
     TasksEndlessAdapter mEndlessAdapter;
     TaskAdapter mAdapter;
+
     @InjectView(R.id.filter_default)
     RadioButtonView mRBDefault;
-
-
     @InjectView(R.id.publicFilterWrapper)
     LinearLayout publicFilterWrapper;
     @InjectView(R.id.privateFilterWrapper)
@@ -135,7 +134,13 @@ public class FiltersFragment extends BaseFragment implements LoaderManager.Loade
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
+
+        mRBDefault = view.findViewById(R.id.filter_default);
+        publicFilterWrapper = view.findViewById(R.id.publicFilterWrapper);
+        privateFilterWrapper = view.findViewById(R.id.privateFilterWrapper);
+
         //initDefaultRadios(view);
+
         view.findViewById(R.id.filter_default).setOnClickListener(this);
         Bundle args = new Bundle();
         args.putBoolean(QUERY_TYPE, true);

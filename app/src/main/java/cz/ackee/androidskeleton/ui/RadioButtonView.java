@@ -2,10 +2,13 @@ package cz.ackee.androidskeleton.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import com.material.widget.RadioButton;
 
@@ -26,7 +29,6 @@ public class RadioButtonView extends RelativeLayout {
     TextView mTxtFilterName;
     @InjectView(R.id.separator)
     View separator;
-
 
     int mQueryId;
     String mQueryString;
@@ -49,6 +51,10 @@ public class RadioButtonView extends RelativeLayout {
         inflate(getContext(), R.layout.widget_radiobutton, this);
 
         ButterKnife.inject(this);
+
+        mRadioButton = findViewById(R.id.filterRadioButton);
+        mTxtFilterName = findViewById(R.id.txtFilterName);
+        separator = findViewById(R.id.separator);
 
         TypedArray a = getContext().getTheme().obtainStyledAttributes(
                 attrs,
@@ -78,6 +84,7 @@ public class RadioButtonView extends RelativeLayout {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public RadioButtonView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);

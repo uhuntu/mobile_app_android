@@ -1,5 +1,6 @@
 package cz.ackee.androidskeleton.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -112,6 +113,7 @@ public class NewTaskFragment extends BaseFragment
     List<LinearLayout> progressBars;
 
     UploadTaskCallbacks mCallback;
+
     @InjectView(R.id.project)
     GmailInputView vProject;
     @InjectView(R.id.priority)
@@ -142,6 +144,7 @@ public class NewTaskFragment extends BaseFragment
     LinearLayout progressWrapper;
     @InjectView(R.id.newAttachmentsWrapper)
     LinearLayout newAttachmentsWrapper;
+
     MaterialDialog progressDialog;
     MaterialDialog waitDialog;
     private boolean mShouldSave;
@@ -290,6 +293,22 @@ public class NewTaskFragment extends BaseFragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
+
+        vProject = view.findViewById(R.id.project);
+        vPriority = view.findViewById(R.id.priority);
+        vStatus = view.findViewById(R.id.status);
+        vTracker = view.findViewById(R.id.tracker);
+        vCategory = view.findViewById(R.id.category);
+        vAssignee = view.findViewById(R.id.assignee);
+        vDone = view.findViewById(R.id.done);
+        vMilestone = view.findViewById(R.id.milestone);
+        vSubject = view.findViewById(R.id.subject);
+        vDescription = view.findViewById(R.id.description);
+        vStartDate = view.findViewById(R.id.startDate);
+        vDueDate = view.findViewById(R.id.dueDate);
+        vEstimatedTime = view.findViewById(R.id.estimatedTime);
+        progressWrapper = view.findViewById(R.id.progressWrapper);
+        newAttachmentsWrapper = view.findViewById(R.id.newAttachmentsWrapper);
 
         initProjects();
         initAttachments();
@@ -705,7 +724,7 @@ public class NewTaskFragment extends BaseFragment
     }
 
     private void addAttachmentToList(final Upload upload, final int count) {
-        LinearLayout item = (LinearLayout) getLayoutInflater(null).inflate(
+        @SuppressLint("RestrictedApi") LinearLayout item = (LinearLayout) getLayoutInflater(null).inflate(
                 R.layout.list_item_attachment, newAttachmentsWrapper, false);
         item.setTag(count);
         ((TextView) item.findViewById(R.id.attachmentTitle)).setText(upload.filename);

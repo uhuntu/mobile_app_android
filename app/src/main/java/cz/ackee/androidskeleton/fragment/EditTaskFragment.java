@@ -1,5 +1,6 @@
 package cz.ackee.androidskeleton.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -95,7 +96,6 @@ public class EditTaskFragment extends BaseFragment implements LoaderManager.Load
 
     @InjectView(R.id.layout_more_stuff)
     LinearLayout mMoreStuffLayout;
-
     @InjectView(R.id.project)
     GmailInputView vProject;
     @InjectView(R.id.priority)
@@ -126,7 +126,6 @@ public class EditTaskFragment extends BaseFragment implements LoaderManager.Load
     GmailInputView vEstimatedTime;
     @InjectView(R.id.btn_more_less)
     Button mMoreLessButton;
-
     @InjectView(R.id.progressWrapper)
     LinearLayout progressWrapper;
     @InjectView(R.id.newAttachmentsWrapper)
@@ -272,6 +271,25 @@ public class EditTaskFragment extends BaseFragment implements LoaderManager.Load
         }
 
         ButterKnife.inject(this, view);
+
+        mMoreStuffLayout = view.findViewById(R.id.layout_more_stuff);
+        vProject = view.findViewById(R.id.project);
+        vPriority = view.findViewById(R.id.priority);
+        vStatus = view.findViewById(R.id.status);
+        vTracker = view.findViewById(R.id.tracker);
+        vCategory = view.findViewById(R.id.category);
+        vAssignee = view.findViewById(R.id.assignee);
+        vDone = view.findViewById(R.id.done);
+        vMilestone = view.findViewById(R.id.milestone);
+        vSubject = view.findViewById(R.id.subject);
+        vDescription = view.findViewById(R.id.description);
+        vStartDate = view.findViewById(R.id.startDate);
+        vDueDate = view.findViewById(R.id.dueDate);
+        vComment = view.findViewById(R.id.comment);
+        vEstimatedTime = view.findViewById(R.id.estimatedTime);
+        mMoreLessButton = view.findViewById(R.id.btn_more_less);
+        progressWrapper = view.findViewById(R.id.progressWrapper);
+        newAttachmentsWrapper = view.findViewById(R.id.newAttachmentsWrapper);
 
         int drawable = R.drawable.more_less_background_redmine;
         int textColor = R.color.r_button_normal;
@@ -1297,7 +1315,7 @@ public class EditTaskFragment extends BaseFragment implements LoaderManager.Load
     }
 
     private void addAttachmentToList(final Upload upload, final int count) {
-        LinearLayout item = (LinearLayout) getLayoutInflater(null).inflate(
+        @SuppressLint("RestrictedApi") LinearLayout item = (LinearLayout) getLayoutInflater(null).inflate(
                 R.layout.list_item_attachment, newAttachmentsWrapper, false);
         item.setTag(count);
         ((TextView) item.findViewById(R.id.attachmentTitle)).setText(upload.filename);

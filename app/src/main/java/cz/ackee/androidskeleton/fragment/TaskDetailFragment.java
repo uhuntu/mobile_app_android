@@ -63,13 +63,13 @@ public class TaskDetailFragment extends BaseFragment {
     private static final String PROJECT_PARCELABLE = "project_parcelable";
     private static final String INIT_KEY = "init";
     private static final String POSITION_KEY = "position";
+
     @InjectView(R.id.vName)
     TextView vName;
 
     private long enqueue;
     private DownloadManager dm;
 
-    //    MenuItem mMenuJournal;
     private Issue mIssue;
 
     public static TaskDetailFragment newInstance(Issue i) {
@@ -232,6 +232,7 @@ public class TaskDetailFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
 
+        vName = view.findViewById(R.id.vName);
     }
 
     @Override

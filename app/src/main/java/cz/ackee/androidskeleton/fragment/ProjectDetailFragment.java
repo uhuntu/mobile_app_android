@@ -62,10 +62,11 @@ public class ProjectDetailFragment extends BaseListFragment
     CollapsibleView collapsibleIssues;
 
     ListView list;
-    @InjectView(R.id.fab)
-    FloatingActionButton fab;
+
 
     ListView.FixedViewInfo headerInfo;
+    @InjectView(R.id.fab)
+    FloatingActionButton fab;
 
     public static ProjectDetailFragment newInstance(int projectId) {
         Bundle args = new Bundle();
@@ -143,6 +144,8 @@ public class ProjectDetailFragment extends BaseListFragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
+
+        fab = view.findViewById(R.id.fab);
 
         getLoaderManager().restartLoader(0, null, ProjectDetailFragment.this).forceLoad();
 

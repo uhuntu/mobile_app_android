@@ -127,12 +127,18 @@ public class GmailInputView extends RelativeLayout implements OnDateSelectedList
 
         ButterKnife.inject(this);
 
+        mTitle = findViewById(R.id.title);
+        mEditText = findViewById(R.id.edit);
+        mSpinner = findViewById(R.id.spinner);
+        wrapper = findViewById(R.id.wrapper);
+        mSwitch = findViewById(R.id.vSwitch);
+        mAutoComplete = findViewById(R.id.autocomplete);
+        mDivider = findViewById(R.id.divider);
+
         TypedArray a = getContext().getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.GmaiInputItem,
                 0, 0);
-
-//        AutofitHelper.create(mTitle);
 
         try {
             int arg = a.getResourceId(R.styleable.GmaiInputItem_input_title, 0);

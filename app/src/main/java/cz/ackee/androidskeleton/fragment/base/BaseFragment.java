@@ -90,7 +90,6 @@ public abstract class BaseFragment extends Fragment implements IBaseFragment {
         delegate.baseSettingsAB();
     }
 
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

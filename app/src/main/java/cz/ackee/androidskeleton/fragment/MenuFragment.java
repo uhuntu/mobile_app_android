@@ -44,18 +44,14 @@ public class MenuFragment extends BaseFragment implements LoaderManager.LoaderCa
 
     @InjectView(R.id.vLogoDrawer)
     ImageView vLogoDrawer;
-
     @InjectView(R.id.drawer_layout)
     LinearLayout drawer_layout;
-
     @InjectView(R.id.searchProject)
     SearchView sv;
     @InjectView(R.id.listProjects)
     ListView listProjects;
-
     @InjectView(R.id.vUsername)
     TextView vName;
-
     @InjectView(R.id.scrollView)
     ScrollView mScrollView;
 
@@ -117,6 +113,13 @@ public class MenuFragment extends BaseFragment implements LoaderManager.LoaderCa
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
+
+        vLogoDrawer = view.findViewById(R.id.vLogoDrawer);
+        drawer_layout = view.findViewById(R.id.drawer_layout);
+        sv = view.findViewById(R.id.searchProject);
+        listProjects = view.findViewById(R.id.listProjects);
+        vName = view.findViewById(R.id.vUsername);
+        mScrollView = view.findViewById(R.id.scrollView);
 
         vName.setText(Storage.getName());
 
