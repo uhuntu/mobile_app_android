@@ -125,7 +125,7 @@ public class LoginFragment extends BaseFragment {
         mEditName = view.findViewById(R.id.editName);
         mEditPassword = view.findViewById(R.id.editPassword);
 
-        mEditUrl.setText("https://redmine.tes-tec.com/");
+//        mEditUrl.setText("https://redmine.tes-tec.com/");
 
         mEditUrlRedmine = view.findViewById(R.id.ReditUrl);
         mEditNameRedmine = view.findViewById(R.id.ReditName);
