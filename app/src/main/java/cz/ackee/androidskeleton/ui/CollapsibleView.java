@@ -3,6 +3,7 @@ package cz.ackee.androidskeleton.ui;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -29,6 +32,7 @@ public class CollapsibleView extends FrameLayout {
     private static final String IS_OPENED = "isOpened";
 
     int mHiddenHeight;
+
     @InjectView(R.id.layoutHeader)
     View mLayoutHeader;
     @InjectView(R.id.layoutContent)
@@ -39,13 +43,12 @@ public class CollapsibleView extends FrameLayout {
     View mImgArrow;
     @InjectView(R.id.bottomline)
     View bottomLine;
+
     private boolean mIsOpened;
 
     public CollapsibleView(Context context) {
-
         super(context);
         init(null);
-
     }
 
     public CollapsibleView(Context context, AttributeSet attrs) {
@@ -57,6 +60,12 @@ public class CollapsibleView extends FrameLayout {
         inflate(getContext(), R.layout.widget_collapsible, this);
 
         ButterKnife.inject(this);
+
+        mLayoutHeader = findViewById(R.id.layoutHeader);
+        mLayoutContent = findViewById(R.id.layoutContent);
+        mTxtSectionTitle = findViewById(R.id.txtSectionTitle);
+        mImgArrow = findViewById(R.id.imgArrow);
+        bottomLine = findViewById(R.id.bottomline);
 
         TypedArray a = getContext().getTheme().obtainStyledAttributes(
                 attrs,
@@ -70,15 +79,14 @@ public class CollapsibleView extends FrameLayout {
             a.recycle();
         }
         mHiddenHeight = -1;
-
     }
 
     public CollapsibleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
-
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public CollapsibleView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);

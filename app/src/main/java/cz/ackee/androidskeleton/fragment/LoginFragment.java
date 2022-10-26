@@ -56,14 +56,12 @@ public class LoginFragment extends BaseFragment {
 
     @InjectView(R.id.vFlipper)
     ViewFlipper vFlipper;
-
     @InjectView(R.id.editName)
     FloatingEditText mEditName;
     @InjectView(R.id.editUrl)
     FloatingEditText mEditUrl;
     @InjectView(R.id.editPassword)
     FloatingEditText mEditPassword;
-
     @InjectView(R.id.ReditName)
     FloatingEditText mEditNameRedmine;
     @InjectView(R.id.ReditUrl)
@@ -74,6 +72,7 @@ public class LoginFragment extends BaseFragment {
     FloatingEditText mEditPhoneRedmine;
     @InjectView(R.id.ReditEmail)
     FloatingEditText mEditEmailRedmine;
+
     private boolean mOnPause;
 
     @Override
@@ -98,7 +97,7 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
+//        setRetainInstance(true);
     }
 
     @Override
@@ -111,6 +110,16 @@ public class LoginFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
 
+        vFlipper = view.findViewById(R.id.vFlipper);
+        mEditUrl = view.findViewById(R.id.editUrl);
+        mEditName = view.findViewById(R.id.editName);
+        mEditPassword = view.findViewById(R.id.editPassword);
+        mEditUrlRedmine = view.findViewById(R.id.ReditUrl);
+        mEditNameRedmine = view.findViewById(R.id.ReditName);
+        mEditPasswordRedmine = view.findViewById(R.id.ReditPassword);
+        mEditEmailRedmine = view.findViewById(R.id.ReditEmail);
+        mEditPhoneRedmine = view.findViewById(R.id.ReditPhone);
+
         getArguments().putInt(CURRENT_VIEW_KEY, getArguments().getInt(ACCOUNT_TYPE, AccountType.EASY_REDMINE.value));
 
         if (getFragmentActivity().isEasyRedmine() != null) {
@@ -119,20 +128,7 @@ public class LoginFragment extends BaseFragment {
             getArguments().putInt(CURRENT_VIEW_KEY, Storage.getAccountType());
         }
 
-        vFlipper = view.findViewById(R.id.vFlipper);
-
-        mEditUrl = view.findViewById(R.id.editUrl);
-        mEditName = view.findViewById(R.id.editName);
-        mEditPassword = view.findViewById(R.id.editPassword);
-
-//        mEditUrl.setText("https://redmine.tes-tec.com/");
-
-        mEditUrlRedmine = view.findViewById(R.id.ReditUrl);
-        mEditNameRedmine = view.findViewById(R.id.ReditName);
-        mEditPasswordRedmine = view.findViewById(R.id.ReditPassword);
-        mEditEmailRedmine = view.findViewById(R.id.ReditEmail);
-        mEditPhoneRedmine = view.findViewById(R.id.ReditPhone);
-
+        mEditUrl.setText("https://redmine.tes-tec.com/");
         mEditUrlRedmine.setText("https://redmine.tes-tec.com/");
 
         if (Storage.getURL() != null && !Storage.getURL().isEmpty()) {

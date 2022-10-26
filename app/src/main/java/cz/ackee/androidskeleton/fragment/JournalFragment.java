@@ -55,8 +55,8 @@ public class JournalFragment extends BaseListFragment implements SwipeRefreshLay
     FloatingActionButton vSendComment;
     @InjectView(android.R.id.empty)
     TextView mTxtEmpty;
-    Issue mIssue;
 
+    Issue mIssue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,9 +113,13 @@ public class JournalFragment extends BaseListFragment implements SwipeRefreshLay
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
+
+        mSwipeRefresh = view.findViewById(R.id.swipe_container);
+        vSendComment = view.findViewById(R.id.vSendComment);
+        mTxtEmpty = view.findViewById(android.R.id.empty);
+
         initGUI();
         setData();
-
 
         mSwipeRefresh.setOnRefreshListener(this);
         mSwipeRefresh.setColorSchemeResources(getFragmentActivity().isEasyRedmine() ? R.color.er_primary : R.color.r_primary);

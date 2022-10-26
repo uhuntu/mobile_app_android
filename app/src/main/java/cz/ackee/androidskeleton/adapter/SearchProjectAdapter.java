@@ -41,7 +41,6 @@ public class SearchProjectAdapter extends ArrayAdapter<Project> {
         ViewHolder holder = (ViewHolder) convertView.getTag();
         final Project p = getItem(position);
         holder.txtTitle.setText(p.getShowName());
-//        AutofitHelper.create(txtTitle);
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,10 +56,11 @@ public class SearchProjectAdapter extends ArrayAdapter<Project> {
         TextView txtTitle;
 
         public ViewHolder(View v) {
-            ButterKnife.inject(this, v);
+            ButterKnife.inject(this, v );
+
+            txtTitle = v.findViewById(R.id.title);
         }
     }
-
 
     public void appendData(List<Project> data) {
         mData.addAll(data);

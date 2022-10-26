@@ -62,10 +62,8 @@ public class NewCommentFragment extends BaseFragment {
 
     @InjectView(R.id.assignee)
     GmailInputView vAssignee;
-
     @InjectView(R.id.status)
     GmailInputView vStatus;
-
     @InjectView(R.id.comment)
     EditText vComment;
 
@@ -127,6 +125,10 @@ public class NewCommentFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         ButterKnife.inject(this, view);
+
+        vAssignee = view.findViewById(R.id.assignee);
+        vStatus = view.findViewById(R.id.status);
+        vComment = view.findViewById(R.id.comment);
 
         mIssue = getArguments().getParcelable(JournalFragment.ISSUE_KEY);
         if (mIssue == null) {

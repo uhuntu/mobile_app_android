@@ -1,5 +1,6 @@
 package cz.ackee.androidskeleton.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuItemCompat;
@@ -44,6 +45,7 @@ public class AddTimeFragment extends BaseFragment {
     private static final java.lang.String ISSUE_ID_KEY = "issueId";
     private static final String TITLE_KEY = "title";
     private static final java.lang.String SELECTION_KEY = "selectionKey";
+
     @InjectView(R.id.editDate)
     GmailInputView mEditDate;
     @InjectView(R.id.editHours)
@@ -52,8 +54,8 @@ public class AddTimeFragment extends BaseFragment {
     GmailInputView mEditComment;
     @InjectView(R.id.editActivity)
     GmailInputView mSpinner;
-    private MaterialDialog mProgressDialog;
 
+    private MaterialDialog mProgressDialog;
 
     public static AddTimeFragment newInstance(int issueId, String title) {
         Bundle args = new Bundle();
@@ -99,6 +101,12 @@ public class AddTimeFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
+
+        mEditDate = view.findViewById(R.id.editDate);
+        mEditTime = view.findViewById(R.id.editHours);
+        mEditComment = view.findViewById(R.id.editComment);
+        mSpinner = view.findViewById(R.id.editActivity);
+
         if (savedInstanceState == null) {
             mEditDate.onDateSelected(Calendar.getInstance());
         }
@@ -203,6 +211,7 @@ public class AddTimeFragment extends BaseFragment {
         });
     }
 
+    @SuppressLint("RestrictedApi")
     private void invalidateOptionsMenu() {
         if (getFragmentActivity().getSupportActionBar() != null) {
             getFragmentActivity().getSupportActionBar().invalidateOptionsMenu();
@@ -212,7 +221,6 @@ public class AddTimeFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-//        getArguments().putString(mEditDate.editText().getText().toString());
         getArguments().putInt(SELECTION_KEY, mSpinner.getSpinner().getSelectedItemPosition());
     }
 
