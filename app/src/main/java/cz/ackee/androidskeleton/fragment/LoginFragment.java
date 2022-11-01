@@ -128,8 +128,8 @@ public class LoginFragment extends BaseFragment {
             getArguments().putInt(CURRENT_VIEW_KEY, Storage.getAccountType());
         }
 
-        mEditUrl.setText("https://redmine.tes-tec.com/");
-        mEditUrlRedmine.setText("https://redmine.tes-tec.com/");
+//        mEditUrl.setText("https://redmine.tes-tec.com/");
+        mEditUrlRedmine.setText("https://redmine.tes-tec.com:3000/");
 
         if (Storage.getURL() != null && !Storage.getURL().isEmpty()) {
             mEditUrl.setText(Storage.getURL());
