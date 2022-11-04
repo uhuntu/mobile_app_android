@@ -120,7 +120,7 @@ public class LoginFragment extends BaseFragment {
         mEditEmailRedmine = view.findViewById(R.id.ReditEmail);
         mEditPhoneRedmine = view.findViewById(R.id.ReditPhone);
 
-        getArguments().putInt(CURRENT_VIEW_KEY, getArguments().getInt(ACCOUNT_TYPE, AccountType.EASY_REDMINE.value));
+        getArguments().putInt(CURRENT_VIEW_KEY, getArguments().getInt(ACCOUNT_TYPE, AccountType.REDMINE.value));
 
         if (getFragmentActivity().isEasyRedmine() != null) {
             view.findViewById(R.id.vSwitchRedmine).setVisibility(View.GONE);
